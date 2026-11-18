@@ -1,0 +1,6 @@
+{
+  "name": "Amit Joshi Portal",
+  "description": "Amit Joshi Portal — Will be live soon. Official portal for amitjoshi.info.np.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

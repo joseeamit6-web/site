@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+@layer base {
+  html,
+  body {
+    background-color: #030608;
+    color: #ffffff;
+    font-family: var(--font-sans);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+}
+
+.portal-heading-glow {
+  text-shadow:
+    0 0 10px rgba(0, 229, 255, 0.55),
+    0 0 26px rgba(0, 200, 255, 0.28),
+    0 0 52px rgba(0, 170, 230, 0.14);
+}
+
+.portal-badge-glow {
+  box-shadow:
+    0 0 20px rgba(0, 229, 255, 0.15),
+    0 0 40px rgba(0, 229, 255, 0.06),
+    inset 0 0 14px rgba(0, 229, 255, 0.06);
+}
+
+.portal-bracket-glow {
+  filter: drop-shadow(0 0 6px rgba(0, 229, 255, 0.35));
+}
+
+.portal-scanlines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 229, 255, 0.03) 0px,
+    rgba(0, 229, 255, 0.03) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  animation: scanline-drift 12s linear infinite;
+}
+
+.portal-ambient-pulse {
+  animation: ambient-breathe 9s ease-in-out infinite alternate;
+}
+
+@keyframes scanline-drift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 16px, 0);
+  }
+}
+
+@keyframes ambient-breathe {
+  0% {
+    opacity: 0.72;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portal-scanlines,
+  .portal-ambient-pulse {
+    animation: none;
+  }
+}
